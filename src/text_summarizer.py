@@ -167,26 +167,6 @@ cv = CountVectorizer()
 cv_matrix = cv.fit_transform(sentences_list)
 
 
-# **So what does CountVectorizer.fit_transform() do?**
-
-
-# a demo of what CountVectorizer().fit_transform(text) does
-cv_demo = CountVectorizer() # a demo object of class CountVectorizer
-
-# I have repeated the words to make a non-ambiguous array of the document text matrix 
-
-text_demo = ["Ashish is good, you are bad", "I am not bad"] 
-res_demo = cv_demo.fit_transform(text_demo)
-print('Result demo array is {}'.format(res_demo.toarray()))
-
-# Result is 2-d matrix containing document text matrix
-# Notice that in the second row, there is 2.
-# also, bad is repeated twice in that sentence.
-# so we can infer that 2 is corresponding to the word 'bad'
-print('Feature list: {}'.format(cv_demo.get_feature_names()))
-
-
-
 # printing the cv_matrix type
 # and how it is being stored in memory?
 # it is stored in the compressed row format
@@ -196,7 +176,6 @@ print('Shape of the matrix {}'.format(cv_matrix.get_shape))
 print('Size of the matrix is: {}'.format(sys.getsizeof(cv_matrix)))
 print(cv.get_feature_names())
 print(cv_matrix.toarray())
-
 
 
 # Tnormalized: document-term matrix normalized (value 0-1) according to the TF-IDF
@@ -308,18 +287,12 @@ else:
 model = sentence_list
 
 
-# print(sentence_list)
 summary = " ".join(str(x) for x in sentence_list)
 print(summary)
 # save the data in another file, names sum.txt
 f = open('../summary/sumarization.txt', 'a+')
 #print(type(f))
-f.write('-------------------\n')
+f.write('--------------------------------------------------------------------\n')
 f.write(summary)
 f.write('\n')
-
 f.close
-
-for lines in sentence_list:
-    print(lines)
-
