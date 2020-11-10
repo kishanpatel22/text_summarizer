@@ -38,16 +38,19 @@
 
  ![TextRank Algorithm](./images/textrank.jpg)
 
-* **Text Clening** : First tokenize all the text into sentences in the document 
-  and then  remove all the stop works and lemantize all the words present in 
-  the tokenized sentence.
+* **Text Clening** : First tokenize all the text document into sentences. We
+  can tokensize on words as well although since for summarization sentence
+  weight are needed.
 
 * **Sentence Vectorization** : Inorder to run textrank algorithm we first 
   convert the sentence format into numbers, without lossing any of the 
   information. For this we vectorize now each sentences into unique vector
   which represents the information stored in the sentence.
-    + By this method we tokenize and normalize the text into individual words
-      and create a vector words count.
+    + Document Term Matrix : matrix in which each row is sentence and each
+      column is word. The value any particular row and column comprise of the 
+      frequency of the word given by column in the sentence given row.
+    + Now since the frequency can arbitary any number, the Document Term matrix
+      is normalized 
     + First create term document matrix which is normalized according to TF-IDF 
       which reflects how much important the words in the vectorized sentence.
       Depending upon the importance we normailze the word into 0 or 1.
